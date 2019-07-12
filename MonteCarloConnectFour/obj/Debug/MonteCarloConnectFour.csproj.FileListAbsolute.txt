@@ -1,0 +1,8 @@
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\bin\Debug\MonteCarloConnectFour.exe.config
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\bin\Debug\MonteCarloConnectFour.exe
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\bin\Debug\MonteCarloConnectFour.pdb
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\obj\Debug\MonteCarloConnectFour.exe
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\obj\Debug\MonteCarloConnectFour.pdb
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\obj\Debug\MonteCarloConnectFour.csprojResolveAssemblyReference.cache
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\bin\Debug\System.Net.Http.dll
+C:\Users\Benny\Documents\Visual Studio 2019\Projects\MonteCarloConnectFour\MonteCarloConnectFour\bin\Debug\System.Net.Http.xml
