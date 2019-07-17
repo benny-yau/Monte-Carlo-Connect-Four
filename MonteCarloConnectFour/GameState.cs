@@ -175,7 +175,7 @@ namespace MonteCarloConnectFour
         {
             for (int i = winners.GetLowerBound(0); i <= winners.GetUpperBound(0); i++)
             {
-                if (board[winners[i, 0]] + board[winners[i, 1]] + board[winners[i, 2]] + board[winners[i, 3]] == 4 * -this.playerTurn)
+                if (board[winners[i, 0]] + board[winners[i, 1]] + board[winners[i, 2]] + board[winners[i, 3]] == 4 * this.playerTurn)
                     return BoardStatus.Win;
             }
             if (board.Where(m => m != 0).Count() == Game.SizeX * Game.SizeY)
@@ -185,17 +185,15 @@ namespace MonteCarloConnectFour
 
         public GameState TakeAction(int action)
         {
-            int currentTurn = this.playerTurn;
-            int[] newBoard = this.board;
-            newBoard[action] = currentTurn;
-            this.playerTurn = -playerTurn;
+            this.board[action] = this.playerTurn;
             BoardStatus boardStatus = this.CheckForEndGame();
             if (boardStatus == BoardStatus.Win || boardStatus == BoardStatus.Draw)
             {
                 this.done = true;
                 if (boardStatus == BoardStatus.Win)
-                    this.value = currentTurn;
+                    this.value = this.playerTurn;
             }
+            this.playerTurn = -playerTurn;
             return this;
         }
 

@@ -57,7 +57,6 @@ namespace MonteCarloConnectFour
         public void Step(int action)
         {
             GameState nextState = gameState.TakeAction(action);
-            this.gameState = nextState;
             this.LastMoves.Add(action);
         }
 
