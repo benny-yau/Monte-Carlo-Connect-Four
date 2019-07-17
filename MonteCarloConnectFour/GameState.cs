@@ -185,17 +185,18 @@ namespace MonteCarloConnectFour
 
         public GameState TakeAction(int action)
         {
+            int currentTurn = this.playerTurn;
             int[] newBoard = this.board;
-            newBoard[action] = this.playerTurn;
-            GameState newState = new GameState(newBoard, -this.playerTurn);
-            BoardStatus boardStatus = newState.CheckForEndGame();
+            newBoard[action] = currentTurn;
+            this.playerTurn = -playerTurn;
+            BoardStatus boardStatus = this.CheckForEndGame();
             if (boardStatus == BoardStatus.Win || boardStatus == BoardStatus.Draw)
             {
-                newState.done = true;
+                this.done = true;
                 if (boardStatus == BoardStatus.Win)
-                    newState.value = this.playerTurn;
+                    this.value = currentTurn;
             }
-            return newState;
+            return this;
         }
 
         public override String ToString()
