@@ -1,5 +1,4 @@
-# Monte-Carlo-Connect-Four
-Monte Carlo Tree Search algorithm implemented on Connect Four game
+# Monte Carlo Tree Search algorithm implemented on Connect Four game
 
 The Monte Carlo Tree Search algorithm is adapted from the Baeldung website and converted from Java to C#. The Tic Tac Toe game is switched for the Connect Four game which is far more complicated with 4,531,985,219,092 possible positions, though still not as complex as Go. Several modifications have been made to the algorithm itself for better performance and results. Three modes of play are available: AI vs Human, AI vs AI, and Human vs Human.
 
