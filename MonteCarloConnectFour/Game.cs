@@ -51,12 +51,13 @@ namespace MonteCarloConnectFour
         {
             int[] board = Enumerable.Repeat(0, SizeX * SizeY).ToArray();
             this.gameState = new GameState(board, 1);
+            this.LastMoves = null;
             return this.gameState;
         }
 
         public void Step(int action)
         {
-            GameState nextState = gameState.TakeAction(action);
+            gameState.TakeAction(action);
             this.LastMoves.Add(action);
         }
 

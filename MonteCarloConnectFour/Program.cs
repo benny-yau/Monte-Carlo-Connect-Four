@@ -7,18 +7,25 @@ namespace MonteCarloConnectFour
         static MonteCarloTreeSearch mcts = new MonteCarloTreeSearch();
         static void Main(string[] args)
         {
-            while (true)
+            try
             {
-                Console.WriteLine("Play against AI? (y/n)");
-                String action = Console.ReadLine();
+                while (true)
+                {
+                    Console.WriteLine("Play against AI? (y/n)");
+                    String action = Console.ReadLine();
 
-                if (action.ToLower() == "y")
-                    PlayMatchesAgainstAI();
-                else if (action.ToLower() == "n")
-                    PlayMatchesBetweenAI();
-                else if (action.ToLower() == "s")
-                    PlayMatchesBetweenHumans();
-                Console.ReadLine();
+                    if (action.ToLower() == "y")
+                        PlayMatchesAgainstAI();
+                    else if (action.ToLower() == "n")
+                        PlayMatchesBetweenAI();
+                    else if (action.ToLower() == "s")
+                        PlayMatchesBetweenHumans();
+                    Console.ReadLine();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
@@ -47,7 +54,7 @@ namespace MonteCarloConnectFour
             while (!game.GameState.Done)
             {
                 game = mcts.FindNextMove(game);
-                if (game.GameState.Done) 
+                if (game.GameState.Done)
                     break;
                 game = HumanAction(game);
             }

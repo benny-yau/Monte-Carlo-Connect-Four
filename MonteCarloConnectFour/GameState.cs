@@ -9,7 +9,7 @@ namespace MonteCarloConnectFour
     {
         private int[] board;
         private int playerTurn;
-
+        private List<int> allowedActions;
         private int value;
         private Boolean done;
 
@@ -37,21 +37,24 @@ namespace MonteCarloConnectFour
         {
             get
             {
-                List<int> allowed = new List<int>();
-                for (int i = 0; i <= this.board.Length - 1; i++)
+                if (allowedActions == null)
                 {
-                    if (i >= this.board.Length - Game.SizeX)
+                    allowedActions = new List<int>();
+                    for (int i = 0; i <= this.board.Length - 1; i++)
                     {
-                        if (this.board[i] == 0)
-                            allowed.Add(i);
-                    }
-                    else
-                    {
-                        if (this.board[i] == 0 && this.board[i + Game.SizeX] != 0)
-                            allowed.Add(i);
+                        if (i >= this.board.Length - Game.SizeX)
+                        {
+                            if (this.board[i] == 0)
+                                allowedActions.Add(i);
+                        }
+                        else
+                        {
+                            if (this.board[i] == 0 && this.board[i + Game.SizeX] != 0)
+                                allowedActions.Add(i);
+                        }
                     }
                 }
-                return allowed;
+                return allowedActions;
             }
         }
 
@@ -85,7 +88,7 @@ namespace MonteCarloConnectFour
             Win,
             Draw
         }
-        
+
         private static int[,] winners =
         {
             {0,1,2,3},
@@ -162,7 +165,7 @@ namespace MonteCarloConnectFour
             {14,22,30,38},
         };
 
-        private static Dictionary<String, String> pieces = new Dictionary<String, String>(){ { "1", "X" }, { "0", "-" }, { "-1", "O" } };
+        private static Dictionary<String, String> pieces = new Dictionary<String, String>() { { "1", "X" }, { "0", "-" }, { "-1", "O" } };
 
         public GameState(int[] board, int playerTurn)
         {
@@ -183,7 +186,7 @@ namespace MonteCarloConnectFour
             return BoardStatus.None;
         }
 
-        public GameState TakeAction(int action)
+        public void TakeAction(int action)
         {
             this.board[action] = this.playerTurn;
             BoardStatus boardStatus = this.CheckForEndGame();
@@ -194,7 +197,7 @@ namespace MonteCarloConnectFour
                     this.value = this.playerTurn;
             }
             this.playerTurn = -playerTurn;
-            return this;
+            allowedActions = null;
         }
 
         public override String ToString()
@@ -241,7 +244,7 @@ namespace MonteCarloConnectFour
                 sb.Append('[');
                 for (int j = 0; j < Game.SizeX; j++)
                 {
-                    sb.Append(counter.ToString().PadLeft(2,' '));
+                    sb.Append(counter.ToString().PadLeft(2, ' '));
                     if (j < Game.SizeX - 1)
                         sb.Append(", ");
                     counter += 1;
